@@ -1,0 +1,17 @@
+services:
+  feedforge:
+    build: .
+    image: feedforge:latest
+    container_name: feedforge
+    ports:
+      - "8000:8000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # Ensure Linux container uses internal ffmpeg/ffprobe even if Windows paths are set in .env
+      - FFMPEG_BIN=ffmpeg
+      - FFPROBE_BIN=ffprobe
+    volumes:
+      - ./outputs:/app/outputs
+    restart: unless-stopped

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FeedForge</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">◆ Feed<span>Forge</span></div>
+      <p class="tag">Topic → script → voiceover → visuals → captions → a publish-ready vertical video for the Global Feed.</p>
+    </header>
+
+    <section class="card" id="inputCard">
+      <label for="topic">What should the video be about?</label>
+      <textarea id="topic" rows="3" placeholder="e.g. Why community-first platforms are the future of social media"></textarea>
+      <div class="controls">
+        <div class="narrow">
+          <label for="scenes">Scenes</label>
+          <input type="number" id="scenes" min="3" max="10" value="6" />
+        </div>
+        <div class="voice">
+          <label for="voice">Voice</label>
+          <select id="voice">
+            <option value="en-US-AriaNeural">Aria · US (F)</option>
+            <option value="en-US-GuyNeural">Guy · US (M)</option>
+            <option value="en-US-JennyNeural">Jenny · US (F)</option>
+            <option value="en-GB-SoniaNeural">Sonia · UK (F)</option>
+            <option value="en-IN-NeerjaNeural">Neerja · IN (F)</option>
+            <option value="en-IN-PrabhatNeural">Prabhat · IN (M)</option>
+            <option value="en-AU-NatashaNeural">Natasha · AU (F)</option>
+          </select>
+        </div>
+        <div class="grow">
+          <label for="style">Visual style</label>
+          <input id="style" value="cinematic, vibrant, highly detailed" />
+        </div>
+      </div>
+      <button id="go">Generate video</button>
+      <p class="hint" id="hint"></p>
+    </section>
+
+    <section class="card hidden" id="progressCard">
+      <div class="steps" id="steps"></div>
+      <div class="bar"><div class="fill" id="fill"></div></div>
+      <p class="msg" id="msg">Starting…</p>
+    </section>
+
+    <section class="card hidden" id="resultCard">
+      <div class="result-grid">
+        <video id="video" controls playsinline></video>
+        <div class="meta">
+          <h2 id="rTitle"></h2>
+          <label>Caption</label>
+          <textarea id="rCaption" rows="5" readonly></textarea>
+          <div class="chips" id="rTags"></div>
+          <div class="actions">
+            <a id="download" class="btn" download>⬇ Download MP4</a>
+            <button id="publishBtn" class="btn ghost">Publish to Qoneqt</button>
+          </div>
+          <div class="publish hidden" id="publishBox"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>Built for <strong>CTRL FREAK 2026</strong> · the Qoneqt AI Challenge</footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
